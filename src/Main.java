@@ -7,7 +7,7 @@ public class Main {
 
         TaskManager manager = new TaskManager();
 
-        Task task = new Task("Tasks.Task", "desc", "IN_PROGRESS");
+        Task task = new Task("Tasks.Tasks.Task", "desc", "IN_PROGRESS");
         manager.createTask(task);
 
         Task task1 = new Task("Task1", "desc", "IN_PROGRESS");
