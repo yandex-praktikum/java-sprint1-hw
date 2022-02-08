@@ -1,10 +1,21 @@
+import Tasks.Epic;
+import Tasks.SubTask;
+import Tasks.Task;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class TaskManager {
     private HashMap<Integer, Task> taskMap = new HashMap<>();
-    int idCounter = 0;
+    private int idCounter = 0;
+
+    public void printTaskMap() {
+        for (Task task : taskMap.values()) {
+            System.out.println(task);
+        }
+
+    }
 
     private int generateID() {
         return idCounter++;
@@ -177,10 +188,7 @@ public class TaskManager {
     }
 
     List<Task> getAllTask() {
-
-        List<Task> result = new ArrayList<>();
-        result.addAll(taskMap.values());
-        return result;
+        return new ArrayList<>(taskMap.values());
     }
 
     Task getTaskByID(int id) {
@@ -192,6 +200,10 @@ public class TaskManager {
     }
 
     ArrayList<SubTask> getAllSubTaskOfEpicByEpicID(int epicID) {
+        if (!taskMap.containsKey(epicID)) {
+            System.out.println("Задача с таким ID не существует");
+            throw new IllegalArgumentException();
+        }
         Task task = taskMap.get(epicID);
         if (!task.getTaskType().equals("epic")) {
             System.out.println("Нельзя получить список задач по ID задачи или подзадачи");
