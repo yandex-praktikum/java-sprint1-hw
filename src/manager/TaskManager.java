@@ -3,12 +3,13 @@ package manager;
 import tasks.Epic;
 import tasks.SubTask;
 import tasks.Task;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class TaskManager {
-    private HashMap<Integer, Task> taskMap = new HashMap<>();
+    private final HashMap<Integer, Task> taskMap = new HashMap<>();
     private int idCounter = 0;
 
     public void printTaskMap() {
