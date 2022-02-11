@@ -23,10 +23,6 @@ public class Epic extends Task {
         return "epic";
     }
 
-    public Epic(String name, String description, String status) {
-        super(name, description, status);
-    }
-
     @Override
     public Integer getId() {
         return super.getId();
@@ -39,8 +35,6 @@ public class Epic extends Task {
 
     @Override
     public String toString() {
-        return "Tasks.Epic{" +
-                "subTaskIDs=" + subTaskIDs +
-                "} " + super.toString();
+        return "Tasks.Epic{" + "subTaskIDs=" + subTaskIDs + "} " + super.toString();
     }
 }
