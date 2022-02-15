@@ -13,17 +13,20 @@ public class TaskManager {
     private int idCounter = 0;
 
     public void printTaskMap() {
-        for (Task task : taskMap.values()) {
-            System.out.println(task);
+        if (!taskMap.isEmpty()) {
+            for (Task task : getAllTask()) {
+                System.out.println(task);
+            }
+        } else {
+            System.out.println("Список задач пуст!");
         }
-
     }
 
     private int generateID() {
-        return ++idCounter;
+        return idCounter++;
     }
 
-    public int createTask(Task task) {
+    public void createTask(Task task) {
         if (task.getId() != null) {
             System.out.println("Ошибка!!!Задача с не пустым ID");
             throw new IllegalArgumentException();
@@ -45,11 +48,9 @@ public class TaskManager {
             ArrayList<Integer> subTaskIds = epic.getSubTaskIDs();
             subTaskIds.add(subTask.getId());
             updateEpicStatus(epic);
-            return subTask.getId();
         } else {
             task.setId(generateID());
             taskMap.put(task.getId(), task);
-            return task.getId();
         }
     }
 
@@ -145,7 +146,7 @@ public class TaskManager {
                 }
                 break;
             default:
-                System.out.println("Данный тип задачи не сущесвует");
+                System.out.println("Данный тип задачи не существует");
         }
     }
 
@@ -184,7 +185,7 @@ public class TaskManager {
                 System.out.println("Для получения всех задач с типом 'подзадача' требуется ID эпика");
                 break;
             default:
-                System.out.println("Данный тип задачи не сущесвует");
+                System.out.println("Данный тип задачи не существует");
         }
         return result;
     }
