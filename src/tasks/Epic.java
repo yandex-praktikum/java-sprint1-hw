@@ -1,5 +1,8 @@
 package tasks;
 
+import enums.Status;
+import enums.TypeOfTask;
+
 import java.util.ArrayList;
 
 public class Epic extends Task {
@@ -7,7 +10,7 @@ public class Epic extends Task {
     private ArrayList<Integer> subTaskIDs = new ArrayList<>();
 
     public Epic(String name, String description) {
-        super(name, description, "NEW");
+        super(name, description, Status.NEW);
     }
 
     public ArrayList<Integer> getSubTaskIDs() {
@@ -15,8 +18,8 @@ public class Epic extends Task {
     }
 
     @Override
-    public String getTaskType() {
-        return "epic";
+    public TypeOfTask getTaskType() {
+        return TypeOfTask.EPIC;
     }
 
     @Override

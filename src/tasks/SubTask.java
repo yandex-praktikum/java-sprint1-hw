@@ -1,10 +1,13 @@
 package tasks;
 
+import enums.Status;
+import enums.TypeOfTask;
+
 public class SubTask extends Task {
 
-    private int epicID;
+    private final int epicID;
 
-    public SubTask(String name, String description, String status, int epicID) {
+    public SubTask(String name, String description, Status status, int epicID) {
         super(name, description, status);
         this.epicID = epicID;
     }
@@ -14,8 +17,8 @@ public class SubTask extends Task {
     }
 
     @Override
-    public String getTaskType() {
-        return "subtask";
+    public TypeOfTask getTaskType() {
+        return TypeOfTask.SUBTASK;
     }
 
     @Override

@@ -1,22 +1,26 @@
 package tasks;
 
+
+import enums.Status;
+import enums.TypeOfTask;
+
 public class Task {
-    private String name;
-    private String description;
-    private String status;
+    private final String name;
+    private final String description;
+    private Status status;
     private Integer id;
 
-    public Task(String name, String description, String status) {
+    public Task(String name, String description, Status status) {
         this.name = name;
         this.description = description;
         this.status = status;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
@@ -28,8 +32,8 @@ public class Task {
         this.id = id;
     }
 
-    public String getTaskType() {
-        return "task";
+    public TypeOfTask getTaskType() {
+        return TypeOfTask.TASK;
     }
 
     @Override
